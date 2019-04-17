@@ -6,28 +6,29 @@
 
 using namespace std;
 
-void Computer::takeTurn(Deck deck, vector<pair<int,string>> river, GameRules rules){    
-    vector<pair<int,string>> testHand;
+void Computer::takeTurn(Deck& deck, vector<pair<int,string>>& river, GameRules& rules){    
+    vector<pair<int,string>> testGameRules;
     vector<pair<int,string>> driftWood;
-    /*testHand.push_back(make_pair(1,"Spade"));
-    testHand.push_back(make_pair(2,"Spade"));
-    testHand.push_back(make_pair(3,"Spade"));
-    testHand.push_back(make_pair(4,"Spade"));
-    testHand.push_back(make_pair(5,"Spade"));
-    testHand.push_back(make_pair(6,"Spade"));
-    testHand.push_back(make_pair(7,"Spade"));
-    testHand.push_back(make_pair(8,"Spade"));
-    testHand.push_back(make_pair(9,"Spade"));
-    testHand.push_back(make_pair(10,"Spade"));
-    */
+    testGameRules.push_back(make_pair(1,"Spade"));
+    testGameRules.push_back(make_pair(1,"Diamond"));
+    testGameRules.push_back(make_pair(1,"Club"));
+    testGameRules.push_back(make_pair(3,"Heart"));
+    testGameRules.push_back(make_pair(3,"Spade"));
+    testGameRules.push_back(make_pair(3,"Spade"));
+    testGameRules.push_back(make_pair(7,"Spade"));
+    testGameRules.push_back(make_pair(7,"Spade"));
+    testGameRules.push_back(make_pair(9,"Heart"));
+    testGameRules.push_back(make_pair(9,"Club"));
+    testGameRules.push_back(make_pair(9,"Spade"));
+    
     cout << "t" << endl;
 
-    driftWood = rules.unmatchedCards(hand);
+    driftWood = rules.unmatchedCards(testGameRules);
     int origUnmatched = driftWood.size();
 
     cout << "test";
     pullCardRiver(river);
-    driftWood = rules.unmatchedCards(hand);
+    driftWood = rules.unmatchedCards(testGameRules);
     int newUnmatched = driftWood.size();
 
     // Hey im testing this
