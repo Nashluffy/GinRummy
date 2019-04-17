@@ -21,24 +21,29 @@ void Player::displayHand(){
 void Player::turn(Deck deck, vector<pair<int,string>> river, GameRules rules){
     int choice;
     cout << "Your hand: " << endl;
-    //cout << displayHand << endl; 
-    //cout << "River: " << river << endl ;
+    displayHand();
+    cout << "River: " << endl;
+     for( auto it:river){
+        cout << it.first << " of " << it.second << endl; 
+    }
     cout << "Enter 1 for gin, 2 to draw from deck, 3 to pick up card from river." << endl;
     cin >> choice;
-    if (choice = 1)
+    if (choice == 1)
     {
         rules.gin(hand);
     }
-    if (choice = 2)
+    else if (choice == 2)
     {
         int choice2;
-        //pullCardDeck(deck);
+        pullCardDeck(deck);
         cout << "Which card do you wish to discard? " << endl;
         cin >> choice2;
 
-        putCard(choice2, river);
+        putCard(choice2 - 1, river);
+        displayHand();
     }
-    if (choice = 3)
+    
+    else if (choice == 3)
     {
         int Choice3;
         pullCardRiver(river);
@@ -47,6 +52,11 @@ void Player::turn(Deck deck, vector<pair<int,string>> river, GameRules rules){
         putCard(Choice3, river);
 
     }
+    else
+    {
+     cout << "Invalid selction" <<endl;
+    }
+    
     choice = 0;
 
 }
@@ -56,7 +66,7 @@ void Player::pullCardRiver(vector<pair<int,string>> river){
     river.erase(river.begin());
 };
 
-void Player::pullCardDeck(vector<pair<int, string>>& deck){
-    hand.push_back(deck.front());
-    deck.erase(deck.begin());
+void Player::pullCardDeck(Deck& deck){
+    hand.push_back(deck.topCard());
+    deck.deck.erase(deck.deck.begin());
 };
