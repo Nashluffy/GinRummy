@@ -27,14 +27,14 @@ int main(){
     testGameRules.push_back(make_pair(1,"Spade"));
     testGameRules.push_back(make_pair(1,"Diamond"));
     testGameRules.push_back(make_pair(1,"Club"));
-    testGameRules.push_back(make_pair(3,"Heart"));
-    testGameRules.push_back(make_pair(3,"Spade"));
+    testGameRules.push_back(make_pair(1,"Heart"));
     testGameRules.push_back(make_pair(3,"Spade"));
     testGameRules.push_back(make_pair(7,"Spade"));
     testGameRules.push_back(make_pair(7,"Spade"));
-    testGameRules.push_back(make_pair(9,"Heart"));
-    testGameRules.push_back(make_pair(9,"Club"));
-    testGameRules.push_back(make_pair(9,"Spade"));
+    testGameRules.push_back(make_pair(7,"Spade"));
+    testGameRules.push_back(make_pair(10,"Heart"));
+    testGameRules.push_back(make_pair(10,"Club"));
+    testGameRules.push_back(make_pair(10,"Spade"));
 
     Deck deck;
     Player player;
@@ -43,24 +43,18 @@ int main(){
     deck.shuffle();
     player.hand = deck.deal();
     computer.hand = deck.deal();
+    computer.hand = testGameRules;
     int score;
 
-    player.turn(deck, river, rules);
+    //player.turn(deck, river, rules);
 
     //Testing for Computers turn
-    river.push_back(make_pair(3,"Diamond"));
-    for(auto it:river){
-        cout <<  it.first <<" of " << it.second << "s" << endl;
-    }
+    river.push_back(make_pair(7,"Diamond"));
+
 
     computer.takeTurn(deck, river, rules);
     
-    for(auto it:river){
-        cout <<  it.first <<" of " << it.second << "s" << endl;
-    }
-    
-
-      /*Testing for finding unmatched cards and Score
+    /*Testing for finding unmatched cards and Score
     matchedCards = rules.unmatchedCards(testGameRules);*/
     for (auto it:matchedCards){
         cout <<  it.first <<" of " << it.second << "s" << endl;
