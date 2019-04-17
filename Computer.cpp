@@ -10,30 +10,27 @@ void Computer::takeTurn(Deck& deck, vector<pair<int,string>>& river, GameRules& 
     vector<pair<int,string>> testGameRules;
     vector<pair<int,string>> driftWood;
     testGameRules.push_back(make_pair(1,"Spade"));
-    testGameRules.push_back(make_pair(1,"Diamond"));
-    testGameRules.push_back(make_pair(1,"Club"));
-    testGameRules.push_back(make_pair(3,"Heart"));
+    testGameRules.push_back(make_pair(2,"Spade"));
     testGameRules.push_back(make_pair(3,"Spade"));
-    testGameRules.push_back(make_pair(3,"Spade"));
+    testGameRules.push_back(make_pair(4,"Spade"));
+    testGameRules.push_back(make_pair(5,"Spade"));
+    testGameRules.push_back(make_pair(6,"Spade"));
     testGameRules.push_back(make_pair(7,"Spade"));
-    testGameRules.push_back(make_pair(7,"Spade"));
-    testGameRules.push_back(make_pair(9,"Heart"));
-    testGameRules.push_back(make_pair(9,"Club"));
+    testGameRules.push_back(make_pair(8,"Spade"));
     testGameRules.push_back(make_pair(9,"Spade"));
+    testGameRules.push_back(make_pair(10,"Spade"));
     
     cout << "t" << endl;
 
     driftWood = rules.unmatchedCards(testGameRules);
-    int origUnmatched = driftWood.size();
+    //int origUnmatched = driftWood.size();
 
     cout << "test";
-    pullCardRiver(river);
+    //pullCardRiver(river);
     driftWood = rules.unmatchedCards(testGameRules);
-    int newUnmatched = driftWood.size();
+    //int newUnmatched = driftWood.size();
 
-    // Hey im testing this
-
-    if(origUnmatched > newUnmatched){
+    /*if(origUnmatched > newUnmatched){
         for(int i = 0; i < driftWood.size(); i++){
             for(int j = 0; i < hand.size(); j++){
                 if((hand.at(i).first == hand.at(j).first) && (hand.at(i).first == hand.at(j).first)){
@@ -44,7 +41,7 @@ void Computer::takeTurn(Deck& deck, vector<pair<int,string>>& river, GameRules& 
     }
     else{
         
-    }
+    }*/
     
 }
 

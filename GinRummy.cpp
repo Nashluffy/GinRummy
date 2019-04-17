@@ -54,7 +54,7 @@ int main(){
         cout <<  it.first <<" of " << it.second << "s" << endl;
     }
 
-    //computer.takeTurn(deck, river, rules);
+    computer.takeTurn(deck, river, rules);
     
     for(auto it:river){
         cout <<  it.first <<" of " << it.second << "s" << endl;
