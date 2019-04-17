@@ -45,11 +45,11 @@ int main(){
     computer.hand = deck.deal();
 
     int score;
-    //Testing for Computers turn
+    /*Testing for Computers turn
     river.push_back(make_pair(7,"Diamond"));
 
     computer.takeTurn(deck, river, rules);
-    
+    */
     /*Testing for finding unmatched cards and Score
     matchedCards = rules.unmatchedCards(testGameRules);*/
     /*for (auto it:matchedCards){
