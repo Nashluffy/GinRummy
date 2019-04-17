@@ -20,12 +20,12 @@ void Player::displayHand(){
     }
 };
 
-vector<pair<int,string>> Player::pullCardRiver(vector<pair<int,string>>& river){
+void Player::pullCardRiver(vector<pair<int,string>> river){
     hand.push_back(river.front());
     river.erase(river.begin());
 };
 
-vector<pair<int,string>> Player::pullCardDeck(vector<pair<int, string>>& deck){
+void Player::pullCardDeck(vector<pair<int, string>>& deck){
     hand.push_back(deck.front());
     deck.erase(deck.begin());
 };

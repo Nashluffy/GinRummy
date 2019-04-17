@@ -23,10 +23,10 @@ void Computer::takeTurn(Deck& deck, vector<pair<int,string>>& river, GameRules& 
     cout << "t" << endl;
 
     driftWood = rules.unmatchedCards(testGameRules);
-    //int origUnmatched = driftWood.size();
+    int origUnmatched = driftWood.size();
 
     cout << "test";
-    //pullCardRiver(river);
+    hand = pullCardRiver(river);
     driftWood = rules.unmatchedCards(testGameRules);
     //int newUnmatched = driftWood.size();
 
