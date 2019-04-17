@@ -21,7 +21,7 @@ void Player::displayHand(){
 void Player::turn(Deck deck, vector<pair<int,string>> river, GameRules rules){
     int choice;
     cout << "Your hand: " << endl;
-    //cout << displayHand << endl; 
+    // cout << displayHand << endl;
     //cout << "River: " << river << endl ;
     cout << "Enter 1 for gin, 2 to draw from deck, 3 to pick up card from river." << endl;
     cin >> choice;
