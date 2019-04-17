@@ -34,7 +34,7 @@ vector<pair<int,string>> GameRules::unmatchedCards(vector<pair<int,string>> hand
             }
             if (x != 2){
                 returnVector.erase(returnVector.begin() + i, returnVector.begin() + i + x);
-                i--;
+                i = 0;
             }
         }
     }
