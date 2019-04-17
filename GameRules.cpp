@@ -20,6 +20,9 @@ vector<pair<int,string>> GameRules::unmatchedCards(vector<pair<int,string>> hand
                 i = 0;
             }
         }
+        if (returnVector.empty()){
+            i = -3;
+        }
 
     }
 
@@ -36,6 +39,9 @@ vector<pair<int,string>> GameRules::unmatchedCards(vector<pair<int,string>> hand
                 returnVector.erase(returnVector.begin() + i, returnVector.begin() + i + x);
                 i = 0;
             }
+        }
+        if (returnVector.empty()){
+            i = -3;
         }
     }
 
