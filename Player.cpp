@@ -61,7 +61,7 @@ void Player::turn(Deck deck, vector<pair<int,string>> river, GameRules rules){
 
 }
 
-void Player::pullCardRiver(vector<pair<int,string>> river){
+void Player::pullCardRiver(vector<pair<int,string>>& river){
     hand.push_back(river.front());
     river.erase(river.begin());
 };
