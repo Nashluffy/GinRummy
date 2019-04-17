@@ -9,25 +9,27 @@ using namespace std;
 void Computer::takeTurn(Deck& deck, vector<pair<int,string>>& river, GameRules& rules){    
     vector<pair<int,string>> testGameRules;
     vector<pair<int,string>> driftWood;
-    testGameRules.push_back(make_pair(1,"Spade"));
-    testGameRules.push_back(make_pair(2,"Spade"));
-    testGameRules.push_back(make_pair(3,"Spade"));
+    testGameRules.push_back(make_pair(3,"Diamonds"));
+    testGameRules.push_back(make_pair(2,"Heart"));
     testGameRules.push_back(make_pair(4,"Spade"));
     testGameRules.push_back(make_pair(5,"Spade"));
-    testGameRules.push_back(make_pair(6,"Spade"));
     testGameRules.push_back(make_pair(7,"Spade"));
     testGameRules.push_back(make_pair(8,"Spade"));
-    testGameRules.push_back(make_pair(9,"Spade"));
     testGameRules.push_back(make_pair(10,"Spade"));
-    
-    cout << "t" << endl;
+    testGameRules.push_back(make_pair(11,"Spade"));
+    testGameRules.push_back(make_pair(15,"Spade"));
+    testGameRules.push_back(make_pair(17,"Spade"));
 
-    driftWood = rules.unmatchedCards(testGameRules);
+    for( auto it:hand){
+        cout << it.first << " of " << it.second << endl; 
+    }
+
+    driftWood = rules.unmatchedCards(hand);
     int origUnmatched = driftWood.size();
 
-    cout << "test";
-    hand = pullCardRiver(river);
-    driftWood = rules.unmatchedCards(testGameRules);
+    
+    pullCardRiver(river);
+    //driftWood = rules.unmatchedCards(hand);
     //int newUnmatched = driftWood.size();
 
     /*if(origUnmatched > newUnmatched){

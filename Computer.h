@@ -1,4 +1,4 @@
-#include "Deck.h"
+#include "Player.h"
 
 class Computer : public Player {
     public:

@@ -16,7 +16,6 @@
 #include <algorithm>
 #include <ctime>
 
-#include "Deck.h"
 #include "Computer.h"
 
 using namespace std;
@@ -46,7 +45,7 @@ int main(){
     computer.hand = deck.deal();
     int score;
 
-   // player.turn(river, rules);
+    player.turn(deck, river, rules);
 
     //Testing for Computers turn
     river.push_back(make_pair(3,"Diamond"));
