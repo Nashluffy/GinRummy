@@ -63,7 +63,6 @@ void Player::turn(Deck& deck, vector<pair<int,string>>& river, GameRules rules){
     {
         int choice2;
         pullCardDeck(deck);
-        cout <<  hand.front().first << " of " << hand.front().second << "s" << " drawn from deck!" << endl;
         displayHand();
         cout << "Which card do you wish to discard? " << endl;
         cin >> choice2;
@@ -96,6 +95,7 @@ void Player::pullCardRiver(vector<pair<int,string>>& river){
 };
 
 void Player::pullCardDeck(Deck& deck){
+    cout <<  deck.topCard().first << " of " << deck.topCard().second << "s" << " drawn from deck!" << endl;
     hand.push_back(deck.topCard());
     deck.deck.erase(deck.deck.begin());
 };
