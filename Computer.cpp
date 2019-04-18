@@ -58,7 +58,5 @@ void Computer::takeTurn(Deck& deck, vector<pair<int,string>>& river, GameRules& 
             cout << "Took No Card" << endl;
         }
     }
-    
-
 }
 

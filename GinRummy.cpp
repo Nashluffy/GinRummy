@@ -45,6 +45,11 @@ int main(){
     computer.hand = deck.deal();
 
     int score;
+
+    deck.gameStart(river);
+    for(auto it:river){
+        cout << it.first << " of " << it.second << endl;
+    }
     /*Testing for Computers turn
     river.push_back(make_pair(7,"Diamond"));
     for(auto it:river){

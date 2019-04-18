@@ -25,6 +25,11 @@ void Deck::shuffle(){
     cout << "Cards shuffled!" << endl;
 };
 
+void Deck::gameStart(vector<pair<int,string>>& river){
+    river.push_back(topCard());
+    deck.erase(deck.begin());
+};
+
 Deck::Deck(){
     vector<string> suite;
     suite.push_back("Spade");
@@ -39,5 +44,4 @@ Deck::Deck(){
         }
     }
     cout << "Welcome to Gin Rummy!" << endl;
-
 };

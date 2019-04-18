@@ -11,6 +11,7 @@ class Deck {
         int getSize() {return deck.size();}
         pair<int,string> topCard() {return deck.front();} 
         vector<pair<int,string>> deck;
+        void gameStart(vector<pair<int,string>>& river);
         Deck();
     private:
 };
