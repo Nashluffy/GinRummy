@@ -6,8 +6,8 @@
 using namespace std;
 
 void Player::putCard(int i, vector<pair<int,string>>& river){
-    hand.erase(hand.begin() + i);
     river.push_back(hand.at(i));
+    hand.erase(hand.begin() + i);
 };
 
 void Player::displayHand(){

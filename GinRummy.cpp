@@ -47,14 +47,21 @@ int main(){
     int score;
     /*Testing for Computers turn
     river.push_back(make_pair(7,"Diamond"));
+    for(auto it:river){
+        cout << it.first << " of " << it.second << endl;
+    }
+    cout << endl;
 
     computer.takeTurn(deck, river, rules);
-    */
+
+    for(auto it:river){
+        cout << it.first << " of " << it.second << endl;
+    }*/
     /*Testing for finding unmatched cards and Score
     matchedCards = rules.unmatchedCards(testGameRules);*/
     /*for (auto it:matchedCards){
         cout <<  it.first <<" of " << it.second << "s" << endl;
-    }*/
+    }
 
     /*while(rules.unmatchedCards(computer.hand).second || rules.unmatchedCards(player.hand).second != 25 + (rules.unmatchedCards(computer.hand).second ||rules.unmatchedCards(player.hand).second))  {
         score = rules.countScore((rules.unmatchedCards(player.hand),rules.unmatchedCards(computer.hand))).second;
