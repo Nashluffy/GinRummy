@@ -63,6 +63,8 @@ void Player::turn(Deck& deck, vector<pair<int,string>>& river, GameRules rules){
     {
         int choice2;
         pullCardDeck(deck);
+        cout <<  hand.front().first << " of " << hand.front().second << "s" << " drawn from deck!" << endl;
+        displayHand();
         cout << "Which card do you wish to discard? " << endl;
         cin >> choice2;
 
