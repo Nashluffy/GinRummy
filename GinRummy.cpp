@@ -16,7 +16,6 @@
 #include <algorithm>
 #include <ctime>
 
-#include "Deck.h"
 #include "Computer.h"
 
 using namespace std;
@@ -25,6 +24,20 @@ int main(){
     vector<pair<int,string>> river;
     vector<pair<int,string>> testGameRules;
     vector<pair<int,string>> matchedCards;
+<<<<<<< HEAD
+=======
+    testGameRules.push_back(make_pair(1,"Spade"));
+    testGameRules.push_back(make_pair(1,"Diamond"));
+    testGameRules.push_back(make_pair(1,"Club"));
+    testGameRules.push_back(make_pair(1,"Heart"));
+    testGameRules.push_back(make_pair(3,"Spade"));
+    testGameRules.push_back(make_pair(7,"Spade"));
+    testGameRules.push_back(make_pair(7,"Spade"));
+    testGameRules.push_back(make_pair(7,"Spade"));
+    testGameRules.push_back(make_pair(10,"Heart"));
+    testGameRules.push_back(make_pair(10,"Club"));
+    testGameRules.push_back(make_pair(10,"Spade"));
+>>>>>>> bed8acbf795bec6fbb584274c8ee872043945b63
 
     Deck deck;
     Player player;
@@ -32,6 +45,7 @@ int main(){
     GameRules rules;
     deck.shuffle();
     player.hand = deck.deal();
+<<<<<<< HEAD
     //computer.hand = deck.deal();
     int score;
 
@@ -48,23 +62,26 @@ int main(){
 
 
    // player.turn(river, rules);
+=======
+    computer.hand = deck.deal();
+>>>>>>> bed8acbf795bec6fbb584274c8ee872043945b63
 
-    //Testing for Computers turn
-    river.push_back(make_pair(3,"Diamond"));
+    int score;
+    /*Testing for Computers turn
+    river.push_back(make_pair(7,"Diamond"));
     for(auto it:river){
-        cout <<  it.first <<" of " << it.second << "s" << endl;
+        cout << it.first << " of " << it.second << endl;
     }
+    cout << endl;
 
     computer.takeTurn(deck, river, rules);
-    
-    for(auto it:river){
-        cout <<  it.first <<" of " << it.second << "s" << endl;
-    }
-    
 
-      /*Testing for finding unmatched cards and Score
+    for(auto it:river){
+        cout << it.first << " of " << it.second << endl;
+    }*/
+    /*Testing for finding unmatched cards and Score
     matchedCards = rules.unmatchedCards(testGameRules);*/
-    for (auto it:matchedCards){
+    /*for (auto it:matchedCards){
         cout <<  it.first <<" of " << it.second << "s" << endl;
     }
 
