@@ -25,17 +25,6 @@ int main(){
     vector<pair<int,string>> river;
     vector<pair<int,string>> testGameRules;
     vector<pair<int,string>> matchedCards;
-    testGameRules.push_back(make_pair(1,"Spade"));
-    testGameRules.push_back(make_pair(1,"Diamond"));
-    testGameRules.push_back(make_pair(1,"Club"));
-    testGameRules.push_back(make_pair(3,"Heart"));
-    testGameRules.push_back(make_pair(3,"Spade"));
-    testGameRules.push_back(make_pair(3,"Spade"));
-    testGameRules.push_back(make_pair(7,"Spade"));
-    testGameRules.push_back(make_pair(7,"Spade"));
-    testGameRules.push_back(make_pair(9,"Heart"));
-    testGameRules.push_back(make_pair(9,"Club"));
-    testGameRules.push_back(make_pair(9,"Spade"));
 
     Deck deck;
     Player player;
@@ -43,8 +32,20 @@ int main(){
     GameRules rules;
     deck.shuffle();
     player.hand = deck.deal();
-    computer.hand = deck.deal();
+    //computer.hand = deck.deal();
     int score;
+
+    computer.hand.push_back(make_pair(13,"Heart"));
+    computer.hand.push_back(make_pair(1,"Spade"));
+    computer.hand.push_back(make_pair(1,"Club"));
+    computer.hand.push_back(make_pair(12,"Diamond"));
+    computer.hand.push_back(make_pair(6,"Heart"));
+    computer.hand.push_back(make_pair(9,"Spade"));
+    computer.hand.push_back(make_pair(11,"Spade"));
+    computer.hand.push_back(make_pair(2,"Diamond"));
+    computer.hand.push_back(make_pair(7,"Spade"));
+    computer.hand.push_back(make_pair(8,"Club"));
+
 
    // player.turn(river, rules);
 
