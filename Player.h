@@ -13,6 +13,7 @@ class Player {
         void pullCardRiver(vector<pair<int,string>>& river);
         void pullCardDeck(Deck& deck);
         void displayHand();
-        void turn(Deck deck, vector<pair<int,string>> river, GameRules rules);
+        void turn(Deck& deck, vector<pair<int,string>>& river, GameRules rules);
+        int score = 0;
     private:
 };

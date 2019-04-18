@@ -20,6 +20,16 @@
 
 using namespace std;
 
+void resetRound(Deck& deck, Player& player, Computer& computer, vector<pair<int,string>>& river){
+    Deck newDeck;
+    deck = newDeck;
+    player.hand.clear();
+    player.hand = deck.deal();
+    computer.hand.clear();
+    computer.hand = deck.deal();
+    river.clear();
+}
+
 int main(){
     vector<pair<int,string>> river;
     vector<pair<int,string>> testGameRules;
@@ -44,45 +54,18 @@ int main(){
     player.hand = deck.deal();
     computer.hand = deck.deal();
 
-    int score;
-
-    deck.gameStart(river);
-    for(auto it:river){
-        cout << it.first << " of " << it.second << endl;
+    while((player.score < 100) && computer.score < 100){
+        deck.gameStart(river);
+        while((rules.gin(player.hand) != 20) && (rules.gin(computer.hand) != 20)){
+            player.turn(deck, river, rules);
+            computer.takeTurn(deck, river, rules);
+        }
+        if(rules.gin(player.hand) == 20){
+            rules.countScore(computer.hand);
+        }
+        resetRound(deck, player, computer, river);
     }
-    /*Testing for Computers turn
-    river.push_back(make_pair(7,"Diamond"));
-    for(auto it:river){
-        cout << it.first << " of " << it.second << endl;
-    }
-    cout << endl;
-
-    computer.takeTurn(deck, river, rules);
-
-    for(auto it:river){
-        cout << it.first << " of " << it.second << endl;
-    }*/
-    /*Testing for finding unmatched cards and Score
-    matchedCards = rules.unmatchedCards(testGameRules);*/
-    /*for (auto it:matchedCards){
-        cout <<  it.first <<" of " << it.second << "s" << endl;
-    }
-
-    /*while(rules.unmatchedCards(computer.hand).second || rules.unmatchedCards(player.hand).second != 25 + (rules.unmatchedCards(computer.hand).second ||rules.unmatchedCards(player.hand).second))  {
-        score = rules.countScore((rules.unmatchedCards(player.hand),rules.unmatchedCards(computer.hand))).second;
-    }
-    if(score < 100) {
-        cout << "Not enough points. Play again!" << endl;
-    }
-
-    else {
-        cout << "Game over!" << endl;
-    }*/
+    
     
 }
 
-//Next card needs to have different suit
-//and same value to be set
-
-//It is not a set if the next card has the same suit
-//or a different value

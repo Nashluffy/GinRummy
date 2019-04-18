@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include "Player.h"
+#include <bits/stdc++.h> 
 
 using namespace std;
 
@@ -11,28 +12,43 @@ void Player::putCard(int i, vector<pair<int,string>>& river){
 };
 
 void Player::displayHand(){
-    int i = 1;
+    int i = 0;
+    sort(hand.begin(), hand.end());
     for (auto it:hand){
-        cout << i << ": " << it.first <<" of " << it.second << "s" << endl;
+        string cardName;
+        if((it.first < 11) && (it.first > 1)){
+            cardName = to_string(it.first);
+        }
+        else if(it.first == 11){
+            cardName = "Jack";
+        }
+        else if(it.first == 12){
+            cardName = "Queen";
+        }
+        else if(it.first == 13){
+            cardName = "King";
+        }
+        else if (it.first == 1 ){
+            cardName = "Ace";
+        }
+        cout << (i+1) << ": " << cardName <<" of " << hand.at(i).second << "s";
+        cout << endl;
         i++;
     }
 };
 
-void Player::turn(Deck deck, vector<pair<int,string>> river, GameRules rules){
-    int choice;
+void Player::turn(Deck& deck, vector<pair<int,string>>& river, GameRules rules){
+    int choice =0;
     cout << "Your hand: " << endl;
     displayHand();
     cout << "River: " << endl;
-     for( auto it:river){
-        cout << it.first << " of " << it.second << endl; 
-    }
-    cout << "Enter 1 for gin, 2 to draw from deck, 3 to pick up card from river." << endl;
+    cout << river.front().first << " of " << river.front().second << "s" << endl;
+    while(choice != 1 && choice != 2){
+    cout << "Enter 1 to draw from deck, 2 to pick up card from river." << endl;
     cin >> choice;
-    if (choice == 1)
-    {
-        rules.gin(hand);
+
     }
-    else if (choice == 2)
+    if (choice == 1)
     {
         int choice2;
         pullCardDeck(deck);
@@ -41,20 +57,22 @@ void Player::turn(Deck deck, vector<pair<int,string>> river, GameRules rules){
 
         putCard(choice2 - 1, river);
         displayHand();
+
     }
     
-    else if (choice == 3)
+    else if (choice == 2)
     {
         int Choice3;
         pullCardRiver(river);
         cout << "Which card do you wish to discard?" << endl;
         cin >> Choice3;
-        putCard(Choice3, river);
+        putCard(Choice3 - 1, river);
+        displayHand();
 
     }
     else
     {
-     cout << "Invalid selction" <<endl;
+     cout << "Invalid selection" <<endl;
     }
     
     choice = 0;

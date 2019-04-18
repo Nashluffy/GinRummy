@@ -9,8 +9,7 @@ vector<pair<int,string>> GameRules::unmatchedCards(vector<pair<int,string>> hand
     returnVector = hand;
     
     for(int i = 0; i < returnVector.size() - 2; i++){
-        if ( (returnVector.size() -2 ) >  0){
-            if (returnVector.at(i).first + 1 == returnVector.at(i+1).first){
+            if ((returnVector.at(i).first + 1 == returnVector.at(i+1).first) && (returnVector.at(i).second == returnVector.at(i + 1).second)){
                 int x = 2;
                 while ((i + x < returnVector.size()) && (returnVector.at(i + x).first == returnVector.at(i).first + x)){
                     x++;
@@ -23,9 +22,7 @@ vector<pair<int,string>> GameRules::unmatchedCards(vector<pair<int,string>> hand
             if (returnVector.empty()){
                 i = -3;
             }
-        }
     }
-
 
     for(int i = 0; i < returnVector.size() - 2; i++){
         if (i < returnVector.size() && (returnVector.at(i).first == returnVector.at(i+1).first)){
@@ -48,19 +45,33 @@ vector<pair<int,string>> GameRules::unmatchedCards(vector<pair<int,string>> hand
 };
 
 int GameRules::gin(vector<pair<int,string>> hand){
-    if (hand.empty()){
+    vector<pair<int,string>> unCards;
+    unCards = unmatchedCards(hand);
+    if (unCards.empty()){
         return 20;
     }
     else{
         return 0;
     }
 };
-int GameRules::countScore(vector<pair<int,string>> player1, vector<pair<int,string>> player2){
+int GameRules::countScore(vector<pair<int,string>>& player1){
     int score = 0;
-    
-    for (auto it:player1){
-        if(it.first < 11){
-
-        }
+    vector<pair<int,string>> unCards;
+    unCards = unmatchedCards(player1);
+    for(auto it:unCards){
+        score = score + cardToScore(it);
     }
+    return score;
 };
+
+int GameRules::cardToScore(pair<int,string> card){
+    int cardValue;
+    if(card.first < 11){
+        cardValue = card.first;
+    }
+    else if(card.first > 10){
+        cardValue = 10;
+    }
+    return cardValue;
+};
+
