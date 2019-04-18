@@ -3,7 +3,9 @@
 #include <iostream>
 
 #include "Computer.h"
-
+#include <stdlib.h> 
+#include <time.h>
+#include <unistd.h>
 
 using namespace std;
 
@@ -24,7 +26,12 @@ void Computer::takeTurn(Deck& deck, vector<pair<int,string>>& river, GameRules& 
                 if((driftWood.at(i).first == hand.at(j).first) && (driftWood.at(i).second == hand.at(j).second)){   //Finds the first unmatched card and
                     putCard(j, river);                                                                            //Sends it to the river
                     //cout << hand.at(i).first << " of " << hand.at(i).second << endl;                // Outputs the move to the player
-                    cout << "Took River Card" << endl;
+                        cout << endl;
+                        cout << "*************************************************************" << endl;
+                        cout << "Computer's turn!" << endl;
+                        sleep(1);
+                        cout << "Took River Card" << endl;
+                        cout << "Computer's turn is over!" << endl;
 
                     i = driftWood.size() - 1;           //Ends the loop
                     j = hand.size() - 1;
@@ -45,8 +52,12 @@ void Computer::takeTurn(Deck& deck, vector<pair<int,string>>& river, GameRules& 
                     if((driftWood.at(i).first == hand.at(j).first) && (driftWood.at(i).second == hand.at(j).second)){   //Finds the first unmatched card and
                         putCard(j, river);                                                                            //Sends it to the river
                         //cout << hand.at(i).first << " of " << hand.at(i).second << endl;                // Outputs the move to the player
+                        cout << endl;
+                        cout << "*************************************************************" << endl;
+                        cout << "Computer's turn!" << endl;
+                        sleep(1);
                         cout << "Took Deck Card" << endl;
-
+                        cout << "Computer's turn is over!" << endl;
                         i = driftWood.size() - 1;           //Ends the loop
                         j = hand.size() - 1;
                     }
@@ -55,7 +66,12 @@ void Computer::takeTurn(Deck& deck, vector<pair<int,string>>& river, GameRules& 
         }
         else{
             putCard(hand.size()-1, river);  //If card drawn from Deck has no use, put it on river
+            cout << endl;
+            cout << "*************************************************************" << endl;
+            cout << "Computer's turn!" << endl;
+            sleep(1);
             cout << "Took No Card" << endl;
+            cout << "Computer's turn is over!" << endl;
         }
     }
 }

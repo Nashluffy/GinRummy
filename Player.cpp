@@ -3,6 +3,9 @@
 #include <iostream>
 #include "Player.h"
 #include <bits/stdc++.h> 
+#include <stdlib.h> 
+#include <time.h>
+#include <unistd.h>
 
 using namespace std;
 
@@ -15,6 +18,7 @@ void Player::displayHand(){
     int i = 0;
     sort(hand.begin(), hand.end());
     for (auto it:hand){
+        sleep(1);
         string cardName;
         if((it.first < 11) && (it.first > 1)){
             cardName = to_string(it.first);
@@ -39,10 +43,17 @@ void Player::displayHand(){
 
 void Player::turn(Deck& deck, vector<pair<int,string>>& river, GameRules rules){
     int choice =0;
+    cout << endl;
+    cout << "*************************************************************" << endl;
     cout << "Your hand: " << endl;
     displayHand();
-    cout << "River: " << endl;
+    cout << endl;
+    cout << "*************************************************************" << endl;
+    cout << "River: ";
     cout << river.front().first << " of " << river.front().second << "s" << endl;
+    cout << endl;
+    cout << "*************************************************************" << endl;
+
     while(choice != 1 && choice != 2){
     cout << "Enter 1 to draw from deck, 2 to pick up card from river." << endl;
     cin >> choice;
@@ -56,7 +67,6 @@ void Player::turn(Deck& deck, vector<pair<int,string>>& river, GameRules rules){
         cin >> choice2;
 
         putCard(choice2 - 1, river);
-        displayHand();
 
     }
     
@@ -67,7 +77,6 @@ void Player::turn(Deck& deck, vector<pair<int,string>>& river, GameRules rules){
         cout << "Which card do you wish to discard?" << endl;
         cin >> Choice3;
         putCard(Choice3 - 1, river);
-        displayHand();
 
     }
     else
