@@ -12,6 +12,7 @@ class Deck {
         pair<int,string> topCard() {return deck.front();} 
         vector<pair<int,string>> deck;
         void gameStart(vector<pair<int,string>>& river);
+        void reshuffleDeck(vector<pair<int,string>>& river);
         Deck();
     private:
 };

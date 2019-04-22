@@ -34,18 +34,7 @@ int main(){
     vector<pair<int,string>> river;
     vector<pair<int,string>> testGameRules;
     vector<pair<int,string>> matchedCards;
-    testGameRules.push_back(make_pair(1,"Spade"));
-    testGameRules.push_back(make_pair(1,"Diamond"));
-    testGameRules.push_back(make_pair(1,"Club"));
-    testGameRules.push_back(make_pair(1,"Heart"));
-    testGameRules.push_back(make_pair(3,"Spade"));
-    testGameRules.push_back(make_pair(7,"Spade"));
-    testGameRules.push_back(make_pair(7,"Spade"));
-    testGameRules.push_back(make_pair(7,"Spade"));
-    testGameRules.push_back(make_pair(10,"Heart"));
-    testGameRules.push_back(make_pair(10,"Club"));
-    testGameRules.push_back(make_pair(10,"Spade"));
-
+    
     Deck deck;
     Player player;
     Computer computer;
@@ -53,16 +42,26 @@ int main(){
     deck.shuffle();
     player.hand = deck.deal();
     computer.hand = deck.deal();
-        cout << "Welcome to Gin Rummy!" << endl;
+    cout << "Welcome to Gin Rummy!" << endl;
 
     while((player.score < 100) && computer.score < 100){
         deck.gameStart(river);
         while((rules.gin(player.hand) != 20) && (rules.gin(computer.hand) != 20)){
+            if (deck.getSize() == 0){
+                deck.reshuffleDeck(river);
+            }
             player.turn(deck, river, rules);
             computer.takeTurn(deck, river, rules);
+            cout << deck.getSize() << endl;
+
         }
         if(rules.gin(player.hand) == 20){
             rules.countScore(computer.hand);
+            cout << "End of round!" << endl;
+        }
+        if(rules.gin(computer.hand) == 20){
+            rules.countScore(player.hand);
+            cout << "End of round!" << endl;
         }
         resetRound(deck, player, computer, river);
     }

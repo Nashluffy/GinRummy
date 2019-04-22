@@ -44,3 +44,17 @@ Deck::Deck(){
         }
     }
 };
+
+void Deck::reshuffleDeck(vector<pair<int,string>>& river){
+    for (auto it:river){ 
+        deck.push_back(it); //Put the card back into the deck. 
+    }
+
+    //Shuffle the deck
+    srand(time(0));
+    random_shuffle(deck.begin(), deck.end());
+    
+    river.clear(); //River is now empty
+    river.push_back(deck.front()); //Take top card from deck and put in river
+    deck.erase(deck.begin()); //Erase the top card from the deck
+};
