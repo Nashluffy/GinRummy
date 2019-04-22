@@ -43,5 +43,4 @@ Deck::Deck(){
             deck.push_back(card);
         }
     }
-    cout << "Welcome to Gin Rummy!" << endl;
 };

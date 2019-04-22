@@ -53,6 +53,7 @@ int main(){
     deck.shuffle();
     player.hand = deck.deal();
     computer.hand = deck.deal();
+        cout << "Welcome to Gin Rummy!" << endl;
 
     while((player.score < 100) && computer.score < 100){
         deck.gameStart(river);

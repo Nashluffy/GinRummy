@@ -47,7 +47,7 @@ vector<pair<int,string>> GameRules::unmatchedCards(vector<pair<int,string>> hand
 int GameRules::gin(vector<pair<int,string>> hand){
     vector<pair<int,string>> unCards;
     unCards = unmatchedCards(hand);
-    if (unCards.empty()){
+    if (unCards.size() == 0){
         return 20;
     }
     else{
