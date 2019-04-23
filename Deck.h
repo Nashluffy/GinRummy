@@ -2,6 +2,7 @@
 #include <string>
 
 using namespace std;
+//Explained the Deck.cpp file. 
 
 class Deck {
     public:

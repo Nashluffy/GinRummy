@@ -5,7 +5,7 @@
 #include <algorithm>
 #include <ctime>
 
-
+// Created a deck with 52 cards. 
 vector<pair<int,string>> Deck::deal(){
         vector<pair<int,string>> hand;
         for (auto i = deck.begin();  i != deck.end(); i++){
@@ -22,7 +22,7 @@ vector<pair<int,string>> Deck::deal(){
 void Deck::shuffle(){
     srand(time(0));
     random_shuffle(deck.begin(), deck.end());
-    cout << "Cards shuffled!" << endl;
+    cout << "Cards shuffled!" << endl; //Shuffled the cards before distributing the cards to player and computer. 
 };
 
 void Deck::gameStart(vector<pair<int,string>>& river){
@@ -31,7 +31,7 @@ void Deck::gameStart(vector<pair<int,string>>& river){
 };
 
 Deck::Deck(){
-    vector<string> suite;
+    vector<string> suite; //pushing back a deck with suite. The pair consists the number and the string(suite).
     suite.push_back("Spade");
     suite.push_back("Heart");
     suite.push_back("Club");
