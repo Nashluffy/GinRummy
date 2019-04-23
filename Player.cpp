@@ -9,12 +9,12 @@
 
 using namespace std;
 
-void Player::putCard(int i, vector<pair<int,string>>& river){
+void Player::putCard(int i, vector<pair<int,string>>& river){ //Puts card from hand into river
     river.push_back(hand.at(i));
     hand.erase(hand.begin() + i);
 };
 
-void Player::displayHand(){
+void Player::displayHand(){ //Displays players hand
     int i = 0;
     sort(hand.begin(), hand.end());
     for (auto it:hand){
@@ -41,16 +41,16 @@ void Player::displayHand(){
     }
 };
 
-void Player::turn(Deck& deck, vector<pair<int,string>>& river, GameRules rules){
+void Player::turn(Deck& deck, vector<pair<int,string>>& river, GameRules rules){ //Players turn
     int choice =0;
     cout << endl;
     cout << "*************************************************************" << endl;
     cout << "Your hand: " << endl;
-    displayHand();
+    displayHand();  //Displays users Hand
     cout << endl;
     cout << "*************************************************************" << endl;
     cout << "River: ";
-    cout << river.front().first << " of " << river.front().second << "s" << endl;
+    cout << river.front().first << " of " << river.front().second << "s" << endl; //Displays River
     cout << endl;
     cout << "*************************************************************" << endl;
 
@@ -59,25 +59,25 @@ void Player::turn(Deck& deck, vector<pair<int,string>>& river, GameRules rules){
     cin >> choice;
 
     }
-    if (choice == 1)
+    if (choice == 1)        //If player chooses to pull a card from deck
     {
         int choice2;
-        pullCardDeck(deck);
+        pullCardDeck(deck);        // Calls pullcardDeck function
         displayHand();
         cout << "Which card do you wish to discard? " << endl;
-        cin >> choice2;
+        cin >> choice2;         //Card they want to discard into the river
 
-        putCard(choice2 - 1, river);
+        putCard(choice2 - 1, river); //passes card they want to put into river to PutCard function
 
     }
     
-    else if (choice == 2)
+    else if (choice == 2)           // if Player wants to pull card from river
     {
         int Choice3;
-        pullCardRiver(river);
+        pullCardRiver(river);       //Calls PullCardRiver function
         cout << "Which card do you wish to discard?" << endl;
-        cin >> Choice3;
-        putCard(Choice3 - 1, river);
+        cin >> Choice3;             //Card player wants to put into river
+        putCard(Choice3 - 1, river); //passes card they want to put into river to PutCard function
 
     }
     else
@@ -89,12 +89,12 @@ void Player::turn(Deck& deck, vector<pair<int,string>>& river, GameRules rules){
 
 }
 
-void Player::pullCardRiver(vector<pair<int,string>>& river){
+void Player::pullCardRiver(vector<pair<int,string>>& river){ //Pulls card from river and puts into players hand
     hand.push_back(river.front());
     river.erase(river.begin());
 };
 
-void Player::pullCardDeck(Deck& deck){
+void Player::pullCardDeck(Deck& deck){ //Pulls card from Deck and puts into players hand
     cout <<  deck.topCard().first << " of " << deck.topCard().second << "s" << " drawn from deck!" << endl;
     hand.push_back(deck.topCard());
     deck.deck.erase(deck.deck.begin());
